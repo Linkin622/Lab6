@@ -1,0 +1,29 @@
+SPIRITD_EXE=spiritd
+spiritd.SRC=spiritd.c
+spiritd.OBJ=spiritd.o
+MOLE_EXE=mole
+mole.SRC=mole.c
+mole.OBJ=mole.o
+
+
+CC=gcc
+CFLAGS=-g
+
+
+all: $(SPIRITD_EXE) $(MOLE_EXE)
+
+
+
+
+$(SPIRITD_EXE): $(spiritd.SRC)
+	$(CC) $(CFLAGS) -c $(spiritd.SRC)
+	$(CC) $(CFLAGS) -o $@ $(spiritd.OBJ)
+
+$(MOLE_EXE): $(mole.SRC)
+	$(CC) $(CFLAGS) -c $(mole.SRC)
+	$(CC) $(CFLAGS) -o $@ $(mole.OBJ)
+
+
+clean:
+	rm -f $(EXECUTABLES) $(spiritd.OBJ) *~
+	rm -f $(EXECUTABLES) $(mole.OBJ) *~
